@@ -19,11 +19,11 @@ func main() {
 	defer file.Close()
 	scanner := bufio.NewScanner(file)
 	total := 0
-	for scanner.Scan() {
+	for i := 0; scanner.Scan(); i++ {
 		text := scanner.Text()
 		count := strings.Count(text, "UCanUup")
-		fmt.Println(count, text)
+		fmt.Println("Line", i, ":", count)
 		total += count
 	}
-	fmt.Println(total)
+	fmt.Println("Total:", total)
 }
